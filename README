@@ -1,0 +1,56 @@
+NAME
+
+	SimpleCalendar 1.1 - A Simple Interface For Monthly Calendars
+
+SYNOPSIS
+
+	use SimpleCalendar;
+	use Data::Dumper;
+	
+	my $obj = new SimpleCalendar(6, 2004, 'monday');
+	my $cal = $obj->BuildCalendar();
+
+DESCRIPTION
+
+	This module provides a fairly simple interface for creating monthly
+	calendars. It makes use of Time::Local module which is usually
+	bundled with Perl by default.
+
+METHODS
+
+	 new
+		Returns a new SimpleCalendar object. It takes three arguments: The month 
+		( which ranges from 1 to 12 ), the year ( which must be a 4 digit number with
+		no leading zeros ) and the start of the week ( from sunday to saturday ).
+
+
+	BuildCalendar
+		Returns an array reference which contains the calendar. Each element of this
+		array represents a week and each element of a week is the day. Days that
+		are before the first day of the month are assigned undef values as well as days
+		that are after the last day of the month. For example, the structure
+		that will be returned from the previous example is:
+
+			$cal = [[undef,'1','2','3','4','5','6'],['7','8','9','10','11','12','13'],['14'
+			,'15','16','17','18','19','20'],['21','22','23','24','25','26','27'],['28','29',
+			'30',undef,undef,undef,undef]];
+
+
+INSTALLATION
+
+	Just download the file to whatever location you like and use it in
+	your scripts.
+
+BUGS
+
+	Not known.
+
+AUTHOR
+
+	Mohammad Mahmoud Khajah - <mmkhajah@syr.edu>
+	Dmitry Sagaev - <zurik@mail.ru>
+
+
+SEE ALSO
+
+	* Time::Local;
